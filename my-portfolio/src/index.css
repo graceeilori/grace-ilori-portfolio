@@ -20,12 +20,20 @@
   --text-dark: #1a1a1a;
   --text-mid: #4a4a4a;
   --text-light: #7a7a7a;
-  --accent: #FF6B35;
-  --accent-hover: #e55a24;
   --card-bg: #ffffff;
   --card-border: #e8e4e0;
   --nav-text: #1a1a1a;
   --border-color: #d4cfc9;
+  --accent: #FF6B35;
+  --accent-hover: #e55a24;
+  --accent-army: #69773C;
+  --accent-army-hover: #C0CC99;
+  --accent-teal: #3C7772;
+  --accent-teal-hover: #99CCC7;
+  --accent-lavender: #543C77;
+  --accent-lavender-hover: #AE99CC;
+
+
 
   /* Typography */
   --font-serif: 'Parastoo', Georgia, serif;

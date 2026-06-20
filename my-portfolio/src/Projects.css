@@ -1,0 +1,230 @@
+/* ---- Page Layout ---- */
+.projects-page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px var(--page-padding) 80px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ---- Page Header ---- */
+.projects-header {
+  text-align: center;
+  margin-bottom: 88px;
+}
+
+.projects-title {
+  font-family: var(--font-serif);
+  font-size: clamp(48px, 5vw, 72px);
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.projects-subtitle {
+  font-family: var(--font-mono);
+  font-size: clamp(11px, 1.1vw, 14px);
+  font-weight: 400;
+  color: var(--text-mid);
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+
+/* ---- Project Cards List ---- */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 88px;
+  width: 100%;
+}
+
+/* ---- Individual Project Card ---- */
+.proj-card {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  position: relative;
+  cursor: default;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Hover tilt */
+.proj-card:hover {
+  transform: rotate(-0.8deg) scale(1.008);
+}
+
+/* "View Project" tooltip — styled pill, appears on hover */
+.proj-card::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -12px;
+  right: 24px;
+  background: var(--text-dark);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 6px 16px;
+  border-radius: 999px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px) rotate(2deg);
+  transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 5;
+}
+
+.proj-card:hover::after {
+  opacity: 1;
+  transform: translateY(0) rotate(2deg);
+}
+
+/* ---- Project Image ---- */
+.proj-card-image {
+  flex-shrink: 0;
+  width: 460px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.proj-card-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  transition: transform 0.4s ease;
+}
+
+.proj-card:hover .proj-card-image img {
+  transform: scale(1.02);
+}
+
+/* Alternate layout: image on right */
+.proj-card:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* Alternate tooltip position for reversed cards */
+.proj-card:nth-child(even)::after {
+  right: auto;
+  left: 24px;
+  transform: translateY(6px) rotate(-2deg);
+}
+
+.proj-card:nth-child(even):hover::after {
+  transform: translateY(0) rotate(-2deg);
+}
+
+/* ---- Project Text ---- */
+.proj-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+/* Year Badge */
+.proj-year-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--text-dark);
+  padding: 4px 12px;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+/* Ongoing badge — accent color */
+.proj-year-badge--ongoing {
+  background: var(--accent-army);
+}
+
+/* Project Title */
+.proj-card-title {
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 2.8vw, 38px);
+  font-weight: 500;
+  color: var(--text-dark);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* Project Description */
+.proj-card-desc {
+  font-family: var(--font-sans);
+  font-size: clamp(14px, 1.4vw, 16px);
+  font-weight: 400;
+  color: var(--text-mid);
+  line-height: 1.5;
+  max-width: 440px;
+}
+
+/* Tags */
+.proj-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.proj-tag {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  padding: 6px 0px;
+}
+
+
+.proj-card:hover .proj-tag {
+  color: var(--text-mid);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .proj-card {
+    flex-direction: column !important;
+    gap: 24px;
+  }
+
+  .proj-card-image {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .proj-card-text {
+    align-items: flex-start;
+  }
+
+  .projects-page {
+    padding: 24px var(--page-padding) 48px;
+  }
+
+  .projects-header {
+    margin-bottom: 48px;
+  }
+
+  .projects-list {
+    gap: 56px;
+  }
+
+  /* Hide tooltip on mobile */
+  .proj-card::after {
+    display: none;
+  }
+}
