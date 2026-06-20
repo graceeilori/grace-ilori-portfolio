@@ -18,7 +18,7 @@ const GitHubIcon = () => (
 const MailIcon = () => (
   <svg viewBox="0 0 24 24" aria-label="Email">
     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-    <polyline points="22,6 12,13 2,6" />
+    <path d="M22 6 C18 10 14 13 12 13 10 13 6 10 2 6" fill="none" />
   </svg>
 )
 
@@ -133,7 +133,7 @@ function App() {
             />
             <span className="sticker-note" aria-hidden="true">
               my current obsession... <br />
-              lego flowers
+              brick flowers
             </span>
           </div>
           <h1 className="hero-heading">
@@ -147,7 +147,7 @@ function App() {
               aria-hidden="true"
               style={{ '--rot': '11.4deg' } as React.CSSProperties}
             />
-            <span className="sticker-note" aria-hidden="true">
+            <span className="sticker-note sticker-note--peng" aria-hidden="true">
               just peng :)
             </span>
           </div>
@@ -160,7 +160,7 @@ function App() {
 
         {/* Tagline */}
         <p className="hero-tagline animate-in animate-in-delay-3">
-          Think<em>ing</em>, design<em>ing</em>, build<em>ing</em> where it matters. These days{' '}
+          Thinking, designing, building where it matters. These days{' '}
           <a
             href="https://ilab.ucalgary.ca"
             className="accent-link"
@@ -200,6 +200,7 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
+            data-tooltip="LinkedIn"
             id="linkedin-link"
           >
             <LinkedInIcon />
@@ -210,6 +211,7 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
+            data-tooltip="GitHub"
             id="github-link"
           >
             <GitHubIcon />
@@ -218,6 +220,7 @@ function App() {
             href="mailto:grace.ilori@ucalgary.ca"
             className="social-icon-link"
             aria-label="Email Grace"
+            data-tooltip="Email"
             id="email-link"
           >
             <MailIcon />

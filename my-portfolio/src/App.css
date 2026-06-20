@@ -26,9 +26,9 @@
 
 .nav-logo {
   font-family: var(--font-mono);
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-dark);
   text-decoration: none;
@@ -52,7 +52,7 @@
 }
 
 .nav-resume:hover {
-  opacity: 0.6;
+  color: var(--accent-hover);
 }
 
 /* ---- Hero Section ---- */
@@ -427,6 +427,7 @@
 }
 
 .social-icon-link {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -436,8 +437,32 @@
   transition: color 0.2s, transform 0.2s;
 }
 
+.social-icon-link::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--text-mid);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  padding: 4px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.social-icon-link:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 .social-icon-link:hover {
-  color: var(--text-dark);
+  color: var(--accent-hover);
   transform: translateY(-2px);
 }
 
