@@ -14,7 +14,7 @@ export default function HomePage() {
             style={{ '--rot': '-15deg' } as React.CSSProperties}
           />
           <span className="sticker-note" aria-hidden="true">
-            my current obsessio... <br />
+            my current obsession... <br />
             brick flowers
           </span>
         </div>
