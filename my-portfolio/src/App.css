@@ -1,9 +1,5 @@
-/* ===================================
-   APP CSS — HOME PAGE COMPONENT STYLES
-   =================================== */
-
-/* ---- Page Layout ---- */
-.home-page {
+/* Page Layout */
+.page-shell {
   width: 100%;
   min-height: 100vh;
   background-color: var(--bg);
@@ -13,7 +9,7 @@
   overflow: hidden;
 }
 
-/* ---- Navigation ---- */
+/* Navigation */
 .top-nav {
   width: 100%;
   display: flex;
@@ -55,7 +51,7 @@
   color: var(--accent-hover);
 }
 
-/* ---- Hero Section ---- */
+/* Hero Section */
 .hero-section {
   flex: 1;
   display: flex;
@@ -227,8 +223,8 @@
   transform: scale(1.15) rotate(-6deg);
 }
 
-/* ---- Project Cards ---- */
-.cards-section {
+/* ---- Portfolio Section Cards ---- */
+.sections-row {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -237,178 +233,28 @@
   width: 100%;
 }
 
-.project-card {
-  border-radius: 16px;
-  overflow: hidden;
-  position: relative;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.section-card {
   flex-shrink: 0;
+  width: 320px;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project-card:hover {
+.section-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  transition: transform 0.4s ease;
+}
+
+.section-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.10);
 }
 
-/* Card 1 — K-Drama Wrapped (featured) */
-.card-kdrama {
-  width: 260px;
-  height: 190px;
-  background: #f5f0eb;
-  border: 1.5px solid var(--card-border);
-  display: flex;
-  flex-direction: column;
-}
-
-.card-kdrama-inner {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
-.card-kdrama-header {
-  background: linear-gradient(135deg, #f8c8c4 0%, #f4a0a0 50%, #e87070 100%);
-  padding: 16px 18px 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.card-title {
-  font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 700;
-  color: #1a1a1a;
-  letter-spacing: 0.01em;
-}
-
-.card-subtitle {
-  font-family: var(--font-serif);
-  font-size: 18px;
-  font-weight: 400;
-  color: #1a1a1a;
-  line-height: 1.1;
-}
-
-.card-kdrama-body {
-  flex: 1;
-  display: flex;
-  align-items: flex-end;
-  padding: 10px 18px;
-  background: linear-gradient(180deg, #f8c8c4 0%, #fce8e6 100%);
-}
-
-.card-kdrama-visual {
-  width: 100%;
-  height: 80px;
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  gap: 8px;
-}
-
-/* Stylized dramatic bar chart as K-Drama visual */
-.bar-chart {
-  display: flex;
-  align-items: flex-end;
-  gap: 3px;
-  height: 60px;
-}
-
-.bar {
-  border-radius: 2px 2px 0 0;
-  width: 10px;
-  background: rgba(255, 255, 255, 0.7);
-}
-
-.card-year-badge {
-  position: absolute;
-  top: -8px;
-  right: 0;
-  background: #1a1a1a;
-  color: white;
-  font-family: var(--font-mono);
-  font-size: 9px;
-  font-weight: 500;
-  padding: 3px 7px;
-  border-radius: 4px;
-}
-
-/* Card 2 — Illustrated/Coming Soon */
-.card-illustration {
-  width: 220px;
-  height: 190px;
-  background: #fafaf8;
-  border: 1.5px dashed #c8c4be;
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  position: relative;
-  overflow: hidden;
-}
-
-.card-illustration-label {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 400;
-  color: var(--text-light);
-  letter-spacing: 0.05em;
-  text-align: center;
-  padding: 0 20px;
-  line-height: 1.5;
-}
-
-/* Dashed illustration inside card */
-.doodle-container {
-  position: relative;
-  width: 80px;
-  height: 80px;
-}
-
-.doodle-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #b8b0a8;
-  position: absolute;
-}
-
-/* Card 3 — "See all" placeholder */
-.card-see-all {
-  width: 90px;
-  height: 190px;
-  background: transparent;
-  border: 1.5px dashed #d4cfc9;
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background 0.2s, border-color 0.2s;
-}
-
-.card-see-all:hover {
-  background: rgba(255, 107, 53, 0.04);
-  border-color: rgba(255, 107, 53, 0.4);
-}
-
-.card-see-all-text {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  font-weight: 500;
-  color: var(--text-light);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-}
-
-/* ---- Experience / Footer Area ---- */
+/* Footer Area */
 .footer-section {
   display: flex;
   flex-direction: column;
@@ -476,8 +322,7 @@
   stroke-linejoin: round;
 }
 
-
-/* ---- Animations ---- */
+/* Animations */
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -524,54 +369,7 @@
   opacity: 0;
 }
 
-/* ---- Experience Mini Cards ---- */
-.exp-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  padding: 0 var(--page-padding);
-  width: 100%;
-}
-
-.exp-row {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.exp-tag {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  background: white;
-  border: 1.5px solid var(--card-border);
-  border-radius: 100px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 400;
-  color: var(--text-mid);
-  white-space: nowrap;
-  transition: border-color 0.2s, background 0.2s;
-}
-
-.exp-tag:hover {
-  border-color: var(--text-mid);
-  background: #f8f6f3;
-}
-
-.exp-tag-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  flex-shrink: 0;
-}
-
-/* ---- Responsive ---- */
+/* Responsive */
 @media (max-width: 768px) {
   :root {
     --page-padding: 24px;
@@ -595,28 +393,15 @@
     height: 32px;
   }
 
-  .cards-section {
+  .sections-row {
     flex-direction: column;
     align-items: center;
     padding: 28px var(--page-padding) 0;
     gap: 14px;
   }
 
-  .card-kdrama,
-  .card-illustration {
+  .section-card {
     width: 100%;
     max-width: 340px;
-  }
-
-  .card-see-all {
-    width: 100%;
-    max-width: 340px;
-    height: 60px;
-    writing-mode: horizontal-tb;
-  }
-
-  .card-see-all-text {
-    writing-mode: horizontal-tb;
-    font-size: 10px;
   }
 }
