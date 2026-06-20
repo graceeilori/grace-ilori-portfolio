@@ -1,184 +1,597 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
+/* ===================================
+   APP CSS — HOME PAGE COMPONENT STYLES
+   =================================== */
 
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-}
-
-.hero {
-  position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
-}
-
-#center {
+/* ---- Page Layout ---- */
+.home-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg);
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
-}
-
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
-}
-
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
-
-.ticks {
   position: relative;
+  overflow: hidden;
+}
+
+/* ---- Navigation ---- */
+.top-nav {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px var(--page-padding);
+  position: relative;
+  z-index: 10;
+}
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
+.nav-logo {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.nav-logo:hover {
+  opacity: 0.7;
+}
+
+.nav-resume {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s ease;
+}
+
+.nav-resume:hover {
+  opacity: 0.6;
+}
+
+/* ---- Hero Section ---- */
+.hero-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--page-padding);
+  text-align: center;
+  gap: 12px;
+  position: relative;
+}
+
+/* Heading Row (with floating stickers) */
+.heading-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+}
+
+.hero-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(128px, 7vw, 88px);
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+}
+
+.hero-heading em {
+  font-style: italic;
+}
+
+/* Floating sticker elements */
+.sticker-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Handwritten hover note */
+.sticker-note {
+  font-family: 'Shadows Into Light', cursive;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-mid);
+  width: 140px;
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+  z-index: 10;
+}
+
+.sticker-wrap:hover .sticker-note {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Peng note — closer + tilted right */
+.sticker-note--peng {
+  bottom: calc(100% - 18px);
+  transform: translateX(-50%) translateY(4px) rotate(5deg);
+}
+
+.sticker-wrap:hover .sticker-note--peng {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) rotate(5deg);
+}
+
+.sticker {
+  flex-shrink: 0;
+  pointer-events: auto;
+  user-select: none;
+  cursor: default;
+}
+
+.sticker-flower {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  transform: rotate(-15deg);
+  transition: transform 0.2s ease;
+}
+
+.sticker-peng {
+  width: 72px;
+  height: 45px;
+  object-fit: contain;
+  transform: rotate(11.4deg);
+  transition: transform 0.2s ease;
+  position: relative;
+  top: 24px;
+  right: 20px;
+}
+
+.sticker-flower:hover {
+  animation: wobble 0.5s ease-in-out;
+}
+
+.sticker-peng:hover {
+  animation: wobble 0.5s ease-in-out;
+}
+
+@keyframes wobble {
+  0% {
+    transform: rotate(var(--rot, 0deg));
   }
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
+  20% {
+    transform: rotate(calc(var(--rot, 0deg) - 8deg));
   }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
+
+  50% {
+    transform: rotate(calc(var(--rot, 0deg) + 8deg));
+  }
+
+  75% {
+    transform: rotate(calc(var(--rot, 0deg) - 4deg));
+  }
+
+  100% {
+    transform: rotate(var(--rot, 0deg));
+  }
+}
+
+/* Subheading */
+.hero-subtitle {
+  font-family: var(--font-mono);
+  font-size: clamp(11px, 1.1vw, 14px);
+  font-weight: 400;
+  color: var(--text-mid);
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+
+/* Tagline */
+.hero-tagline {
+  font-family: var(--font-sans);
+  font-size: clamp(20px, 1.4vw, 22px);
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1.5;
+  max-width: 720px;
+}
+
+.hero-tagline em {
+  font-style: italic;
+  font-weight: 300;
+}
+
+.hero-tagline .accent-link {
+  color: var(--accent);
+  font-style: normal;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hero-tagline .accent-link:hover {
+  transform: scale(1.15) rotate(-6deg);
+}
+
+/* ---- Project Cards ---- */
+.cards-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px var(--page-padding) 0;
+  width: 100%;
+}
+
+.project-card {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* Card 1 — K-Drama Wrapped (featured) */
+.card-kdrama {
+  width: 260px;
+  height: 190px;
+  background: #f5f0eb;
+  border: 1.5px solid var(--card-border);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-kdrama-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-kdrama-header {
+  background: linear-gradient(135deg, #f8c8c4 0%, #f4a0a0 50%, #e87070 100%);
+  padding: 16px 18px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-title {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 0.01em;
+}
+
+.card-subtitle {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 400;
+  color: #1a1a1a;
+  line-height: 1.1;
+}
+
+.card-kdrama-body {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  padding: 10px 18px;
+  background: linear-gradient(180deg, #f8c8c4 0%, #fce8e6 100%);
+}
+
+.card-kdrama-visual {
+  width: 100%;
+  height: 80px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+/* Stylized dramatic bar chart as K-Drama visual */
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 60px;
+}
+
+.bar {
+  border-radius: 2px 2px 0 0;
+  width: 10px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.card-year-badge {
+  position: absolute;
+  top: -8px;
+  right: 0;
+  background: #1a1a1a;
+  color: white;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  padding: 3px 7px;
+  border-radius: 4px;
+}
+
+/* Card 2 — Illustrated/Coming Soon */
+.card-illustration {
+  width: 220px;
+  height: 190px;
+  background: #fafaf8;
+  border: 1.5px dashed #c8c4be;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-illustration-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--text-light);
+  letter-spacing: 0.05em;
+  text-align: center;
+  padding: 0 20px;
+  line-height: 1.5;
+}
+
+/* Dashed illustration inside card */
+.doodle-container {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.doodle-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #b8b0a8;
+  position: absolute;
+}
+
+/* Card 3 — "See all" placeholder */
+.card-see-all {
+  width: 90px;
+  height: 190px;
+  background: transparent;
+  border: 1.5px dashed #d4cfc9;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.card-see-all:hover {
+  background: rgba(255, 107, 53, 0.04);
+  border-color: rgba(255, 107, 53, 0.4);
+}
+
+.card-see-all-text {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--text-light);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* ---- Experience / Footer Area ---- */
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 32px var(--page-padding) 40px;
+  width: 100%;
+}
+
+/* Social Icons Row */
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.social-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: var(--text-mid);
+  transition: color 0.2s, transform 0.2s;
+}
+
+.social-icon-link:hover {
+  color: var(--text-dark);
+  transform: translateY(-2px);
+}
+
+.social-icon-link svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* ---- Animations ---- */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fade-up 0.7s ease forwards;
+}
+
+.animate-in-delay-1 {
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.animate-in-delay-2 {
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.animate-in-delay-3 {
+  animation-delay: 0.35s;
+  opacity: 0;
+}
+
+.animate-in-delay-4 {
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+.animate-in-delay-5 {
+  animation-delay: 0.65s;
+  opacity: 0;
+}
+
+.animate-in-delay-6 {
+  animation-delay: 0.8s;
+  opacity: 0;
+}
+
+/* ---- Experience Mini Cards ---- */
+.exp-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 0 var(--page-padding);
+  width: 100%;
+}
+
+.exp-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.exp-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: white;
+  border: 1.5px solid var(--card-border);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-mid);
+  white-space: nowrap;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.exp-tag:hover {
+  border-color: var(--text-mid);
+  background: #f8f6f3;
+}
+
+.exp-tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  :root {
+    --page-padding: 24px;
+  }
+
+  .top-nav {
+    padding: 24px var(--page-padding);
+  }
+
+  .hero-heading {
+    font-size: 40px;
+  }
+
+  .sticker-flower {
+    width: 36px;
+    height: 36px;
+  }
+
+  .sticker-peng {
+    width: 52px;
+    height: 32px;
+  }
+
+  .cards-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 28px var(--page-padding) 0;
+    gap: 14px;
+  }
+
+  .card-kdrama,
+  .card-illustration {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .card-see-all {
+    width: 100%;
+    max-width: 340px;
+    height: 60px;
+    writing-mode: horizontal-tb;
+  }
+
+  .card-see-all-text {
+    writing-mode: horizontal-tb;
+    font-size: 10px;
   }
 }
