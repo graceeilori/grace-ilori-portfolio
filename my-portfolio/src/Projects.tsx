@@ -36,11 +36,11 @@ const projects = [
   },
 ]
 
-const tagStyles = {
+const tagStyles: Record<string, React.CSSProperties> = {
   RESEARCH: { color: 'var(--accent-army)' },
   DEVELOPMENT: { color: 'var(--accent-teal)' },
   UX: { color: 'var(--accent-lavender)' },
-}
+};
 
 /* ---- Projects Page ---- */
 export default function ProjectsPage() {
@@ -81,7 +81,7 @@ export default function ProjectsPage() {
               <div className="proj-tags">
                 {project.tags.map((tag) => (
                   <span key={tag} className="proj-tag"
-                    style={{ color: tagStyles[tag].color }}>#{tag}</span>
+                    style={{ color: tagStyles[tag]?.color }}>#{tag}</span>
                 ))}
               </div>
             </div>
