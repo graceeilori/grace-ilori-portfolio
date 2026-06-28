@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './App.css'
 
 export default function HomePage() {
@@ -56,14 +57,41 @@ export default function HomePage() {
 
       {/* Portfolio Sections */}
       <div className="sections-row" role="region" aria-label="Portfolio Sections">
-        {/* Projects */}
-        <div className="section-card animate-in animate-in-delay-4">
-          <a href="/projects">
-            <img src="/assets/project-card-v1.png" alt="" />
-          </a>
-        </div>
-        {/* Experience */}
-        {/* Playground */}
+        {/* PROJECTS — with peek cards */}
+        <Link to="/projects" className="section-nav" id="nav-projects">
+          <span className="section-link">Projects</span>
+          <div className="peek-cards" aria-hidden="true">
+            <img
+              src="/assets/project-peak-cpsc-581-v2.png"
+              alt=""
+              className="peek-card peek-card--1"
+            />
+            <img
+              src="/assets/project-peak-asd-journey.png"
+              alt=""
+              className="peek-card peek-card--2"
+            />
+            <img
+              src="/assets/project-peak-kdrama-wrapped.png"
+              alt=""
+              className="peek-card peek-card--3"
+            />
+          </div>
+        </Link>
+
+        <img src="/assets/star_1.svg" alt="" className="section-star" aria-hidden="true" />
+
+        {/* EXPERIENCE — text hover only for now, peek-ready */}
+        <a href="#" className="section-nav" id="nav-experience">
+          <span className="section-link">Experience</span>
+        </a>
+
+        <img src="/assets/star_2.svg" alt="" className="section-star" aria-hidden="true" />
+
+        {/* PLAYGROUND — text hover only for now, peek-ready */}
+        <a href="#" className="section-nav" id="nav-playground">
+          <span className="section-link">Playground</span>
+        </a>
       </div>
     </main>
   )

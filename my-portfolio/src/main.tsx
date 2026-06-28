@@ -5,6 +5,7 @@ import './index.css'
 import Layout from './Layout.tsx'
 import HomePage from './App.tsx'
 import ProjectsPage from './Projects.tsx'
+import KDramaWrappedPage from './KDramaWrapped.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -13,6 +14,7 @@ createRoot(document.getElementById('root')!).render(
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/projects/kdrama-wrapped" element={<KDramaWrappedPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
