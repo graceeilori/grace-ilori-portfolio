@@ -50,41 +50,10 @@
   align-items: center;
   gap: 64px;
   position: relative;
-  cursor: default;
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
 }
 
-/* Hover tilt */
-.proj-card:hover {
-  transform: rotate(-0.8deg) scale(1.008);
-}
 
-/* "View Project" tooltip — styled pill, appears on hover */
-.proj-card::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  top: -12px;
-  right: 24px;
-  background: var(--text-dark);
-  color: #fff;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  padding: 6px 16px;
-  border-radius: 999px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(6px) rotate(2deg);
-  transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-  z-index: 5;
-}
-
-.proj-card:hover::after {
-  opacity: 1;
-  transform: translateY(0) rotate(2deg);
-}
 
 /* ---- Project Image ---- */
 .proj-card-image {
@@ -92,6 +61,7 @@
   width: 460px;
   border-radius: 16px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .proj-card-image img {
@@ -102,8 +72,12 @@
   transition: transform 0.4s ease;
 }
 
-.proj-card:hover .proj-card-image img {
-  transform: scale(1.02);
+.proj-card-image:hover img {
+  transform: rotate(-1.5deg) scale(1.02);
+}
+
+.proj-card-image:hover {
+  transform: rotate(-1.5deg);
 }
 
 /* Alternate layout: image on right */
@@ -160,6 +134,11 @@
   color: var(--text-dark);
   line-height: 1.2;
   letter-spacing: -0.01em;
+  transition: color 0.25s ease;
+}
+
+.proj-card:hover .proj-card-title {
+  color: var(--accent);
 }
 
 /* Project Description */
@@ -224,7 +203,4 @@
   }
 
   /* Hide tooltip on mobile */
-  .proj-card::after {
-    display: none;
-  }
 }
