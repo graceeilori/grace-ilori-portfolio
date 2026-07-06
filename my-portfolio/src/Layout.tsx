@@ -31,7 +31,7 @@ export default function Layout() {
         <a href="/" className="nav-logo animate-in animate-in-delay-1" aria-label="Grace Ilori — Home">
           GRACE ILORI
         </a>
-        <a
+        {/* <a
           href="/resume.pdf"
           className="nav-resume animate-in animate-in-delay-1"
           target="_blank"
@@ -39,7 +39,7 @@ export default function Layout() {
           aria-label="View Resume (opens in new tab)"
         >
           RESUME
-        </a>
+        </a> */}
       </nav>
 
       {/* ── Page Content ── */}

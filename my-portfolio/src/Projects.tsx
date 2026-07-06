@@ -3,24 +3,6 @@ import './Projects.css'
 /* ---- Project Data ---- */
 const projects = [
   {
-    id: 'kdpredict',
-    link: '#',
-    image: '/assets/project-cover-kdpredict.png',
-    year: 'ONGOING',
-    title: 'KDpredict',
-    description: 'Visualizing Kidney Failure and Mortality Risk.',
-    tags: ['RESEARCH', 'DEVELOPMENT', 'UX'],
-  },
-  {
-    id: 'cpsc-581',
-    link: '#',
-    image: '/assets/project-cover-cpsc-581.png',
-    year: '2026',
-    title: 'CPSC 581 Collection',
-    description: 'Visual design, embodied interaction, and physical computing.',
-    tags: ['DEVELOPMENT', 'UX'],
-  },
-  {
     id: 'kdrama-wrapped',
     link: '/projects/kdrama-wrapped',
     image: '/assets/project-cover-kdrama-wrapped-v2.png',
@@ -30,8 +12,26 @@ const projects = [
     tags: ['DEVELOPMENT', 'UX'],
   },
   {
+    id: 'kdpredict',
+    link: '/coming-soon',
+    image: '/assets/project-cover-kdpredict.png',
+    year: 'ONGOING',
+    title: 'KDpredict',
+    description: 'Visualizing Kidney Failure and Mortality Risk.',
+    tags: ['RESEARCH', 'DEVELOPMENT', 'UX'],
+  },
+  {
+    id: 'cpsc-581',
+    link: '/coming-soon',
+    image: '/assets/project-cover-cpsc-581.png',
+    year: '2026',
+    title: 'CPSC 581 Collection',
+    description: 'Visual design, embodied interaction, and physical computing.',
+    tags: ['DEVELOPMENT', 'UX'],
+  },
+  {
     id: 'asd-journey',
-    link: '#',
+    link: '/coming-soon',
     image: '/assets/project-cover-asd-journey.png',
     year: '2025',
     title: 'ASD Journey',
