@@ -11,6 +11,15 @@ const projects = [
     tags: ['DEVELOPMENT', 'UX'],
   },
   {
+    id: 'cpsc-581',
+    link: 'https://gracei.vercel.app/',
+    image: '/assets/project-cover-cpsc-581.png',
+    year: '2026',
+    title: 'CPSC 581 Collection',
+    description: 'Visual design, embodied interaction, and physical computing.',
+    tags: ['DEVELOPMENT', 'UX'],
+  },
+  {
     id: 'kdpredict',
     link: '/coming-soon',
     image: '/assets/project-cover-kdpredict.png',
@@ -18,15 +27,6 @@ const projects = [
     title: 'KDpredict',
     description: 'Visualizing Kidney Failure and Mortality Risk.',
     tags: ['RESEARCH', 'DEVELOPMENT', 'UX'],
-  },
-  {
-    id: 'cpsc-581',
-    link: '/coming-soon',
-    image: '/assets/project-cover-cpsc-581.png',
-    year: '2026',
-    title: 'CPSC 581 Collection',
-    description: 'Visual design, embodied interaction, and physical computing.',
-    tags: ['DEVELOPMENT', 'UX'],
   },
   {
     id: 'asd-journey',
@@ -64,7 +64,11 @@ export default function ProjectsPage() {
             key={project.id}
             onClick={() => {
               if (project.link !== "#") {
-                window.location.href = project.link;
+                if (project.id === "cpsc-581") {
+                  window.open(project.link, '_blank', 'noopener,noreferrer');
+                } else {
+                  window.location.href = project.link;
+                }
               }
             }}
             className={`proj-card animate-in animate-in-delay-${Math.min(index + 3, 6)}`}
