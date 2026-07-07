@@ -1,11 +1,10 @@
 import './Projects.css'
 
-/* ---- Project Data ---- */
 const projects = [
   {
     id: 'kdrama-wrapped',
     link: '/projects/kdrama-wrapped',
-    image: '/assets/project-cover-kdrama-wrapped-v2.png',
+    image: '/assets/project-cover-kdrama-wrapped-v4.png',
     year: '2025',
     title: 'K-Drama Wrapped',
     description: 'A Spotify-Wrapped inspired recap for K-drama watchers.',

@@ -17,14 +17,13 @@ export default function KDramaWrappedPage() {
     title: 'K-Drama Wrapped',
     summary: 'A Spotify-Wrapped inspired recap for K-drama watchers.',
     tags: ['DEVELOPMENT', 'UX'],
-    cover: '/assets/project-cover-kdrama-wrapped-v2.png',
+    cover: '/assets/project-cover-kdrama-wrapped-v4.png',
     liveUrl: 'https://kdramawrapped.com/',
     codeUrl: 'https://github.com/graceeilori/kdrama-wrapped',
     details: {
       tools: ['React', 'TypeScript', 'Figma'],
       duration: '1 week',
       year: '2025',
-      readTime: '4 min read',
     },
   }
 
@@ -122,10 +121,6 @@ export default function KDramaWrappedPage() {
           <span className="cs-detail-label">Year</span>
           <span className="cs-detail-value">{project.details.year}</span>
         </div>
-        <div className="cs-detail">
-          <span className="cs-detail-label">Read Time</span>
-          <span className="cs-detail-value">{project.details.readTime}</span>
-        </div>
       </div>
 
       {/* Main Reading Area */}
@@ -164,15 +159,11 @@ export default function KDramaWrappedPage() {
                 <img src="/assets/notes-app-screenshot.png" alt="Notes app with unstructured drama tracking" />
                 <span className="cs-image-caption">Tracking dramas in Google Keep</span>
               </div>
-              <div className="cs-image-slot">
-                <img src="/assets/twitter-context-screenshot.png" alt="Twitter conversation about K-drama tracking" />
-                <span className="cs-image-caption">Community discussion on Twitter</span>
-              </div>
             </div>
 
             <p className="cs-body">
               Inspired by the design and purpose of Spotify Wrapped, I set out to build K-Drama Wrapped
-              so that members of the community could transform their raw viewing data into a highly visual
+              so that people can transform their raw viewing data into a highly visual
               and socially engaging format.
             </p>
           </section>
@@ -196,10 +187,10 @@ export default function KDramaWrappedPage() {
 
             <p className="cs-body">
               To ensure visual consistency across the dynamic recaps, I built a lightweight design system in Figma.
-              I established a pastel-driven color palette featuring soft pinks, blues, and yellows,
-              and paired Bricolage Grotesque for punchy headings with Reenie Beanie for handwriting-style accents.
+              I established a <span className="highlighted-word-ux">pastel-driven color palette</span> featuring soft pinks, blues, and yellows,
+              and paired <span className="highlighted-word-ux">Bricolage Grotesque</span> for punchy headings with <span className="highlighted-word-ux">Reenie Beanie</span> for handwriting-style accents.
               To give the algorithmic "Vibes" a distinct personality, I created custom, hand-drawn vector illustrations,
-              such as a magnifying glass for the "Detective" and a lotus for the "Healing Soul," using Figma Draw.
+              such as a magnifying glass for the "Detective" and a lotus for the "Healing Soul," using <span className="highlighted-word-ux">Figma Draw</span>.
               Finally, I designed tags for 13 genres using open source icons.
             </p>
             <div className="cs-kdrama-design-showcase">
@@ -273,11 +264,37 @@ export default function KDramaWrappedPage() {
             <p className="cs-body">
               Each recap card is designed to stand on its own as a shareable image.
             </p>
-            <div className="cs-image-group">
-              <div className="cs-image-slot cs-image-slot--full">
-                <img src="/assets/kdrama-wrapped/design-slides.png" alt="Final design of K-Drama Wrapped" />
+
+            <motion.div
+              className="cs-recap-showcase"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+            >
+              <div className="cs-recap-grid">
+                {[1, 2, 3, 4, 5, 6, 7, 8].map((num, index) => (
+                  <motion.div
+                    key={num}
+                    className="cs-recap-card-slot"
+                    initial={{ opacity: 0, y: 24, scale: 0.95 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{
+                      delay: index * 0.08,
+                      duration: 0.5,
+                      ease: "easeOut",
+                    }}
+                  >
+                    <img
+                      src={`/assets/kdrama-wrapped/recap-card-${num}.png`}
+                      alt={`K-Drama Wrapped recap card ${num}`}
+                      className="cs-recap-card-img"
+                    />
+                  </motion.div>
+                ))}
               </div>
-            </div>
+            </motion.div>
 
           </section>
 
@@ -285,40 +302,89 @@ export default function KDramaWrappedPage() {
           <section id="development" className="cs-section">
             <h2 className="cs-section-title">Development</h2>
             <p className="cs-body">
-              I started by mapping out the data pipeline — scraping public MyDramaList profiles,
-              normalizing the data, and computing the stats that would feel most delightful to see.
-              The front-end is a single-page React app with animated card transitions that mimic
-              the Spotify Wrapped swipe-through experience.
+              I built the application using <span className="highlighted-word-development">React</span>, <span className="highlighted-word-development">TypeScript</span>, and <span className="highlighted-word-development">Next.js</span>, and deployed it on <span className="highlighted-word-development">Vercel</span>.
+              To accelerate the development cycle and translate my UI mockups into components efficiently,
+              I used <span className="highlighted-word-development">Figma MCP</span> for design implementation and <span className="highlighted-word-development">Antigravity IDE</span> for
+              AI-assisted coding. While these tools allowed me to ship the front-end rapidly,
+              the biggest technical challenge was figuring out how to take a user's messy,
+              copy-pasted list of watched dramas and turn it into standardized data I could use
+              to calculate their stats. I was able to solve the challenge by implementing the following:
             </p>
-            <div className="cs-image-group">
-              <div className="cs-image-slot">
-                <img src="/assets/project-cover-kdrama-wrapped.png" alt="Early wireframes and flow mapping" />
-                <span className="cs-image-caption">Early wireframes and user flow</span>
-              </div>
-              <div className="cs-image-slot">
-                <img src="/assets/project-cover-kdrama-wrapped-v2.png" alt="Component architecture" />
-                <span className="cs-image-caption">Final card component system</span>
-              </div>
-            </div>
-            <p className="cs-body">
-              The trickiest part was handling inconsistent data from scraped profiles — missing
-              entries, different date formats, incomplete watch histories. I built a normalizer
-              that gracefully degrades, so the experience still feels complete even with gaps.
-            </p>
+
+            <ul className="cs-custom-bullets">
+              <motion.li
+                className="cs-custom-bullet"
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
+                <span className="cs-bullet-shape cs-bullet-shape--1" />
+                <div className="cs-bullet-content">
+                  <span className="cs-bullet-title">API Integration & Normalization</span>
+                  <span className="cs-bullet-text">
+                    I used the <span className="highlighted-word-development">TMDB API</span> as the central source of truth.
+                    When a user inputs a drama title, the app queries the API to fetch the official metadata.
+                    This ensured accurate calculations for total episodes and runtimes.  I also added a "Did you mean?" fallback system so users
+                    don't hit a frustrating dead end if their spelling doesn't perfectly match the database.
+                  </span>
+                </div>
+              </motion.li>
+              <motion.li
+                className="cs-custom-bullet"
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+              >
+                <span className="cs-bullet-shape cs-bullet-shape--2" />
+                <div className="cs-bullet-content">
+                  <span className="cs-bullet-title">Genre Inferencing</span>
+                  <span className="cs-bullet-text">
+                    Because default TMDB genre tags are designed for broad global cinema, they fail to
+                    capture the specific tropes of Korean television. I wrote a script
+                    that evaluates a drama's metadata keywords and existing genres against a rule-based mapping system. By scanning for localized keywords, the script dynamically
+                    infers and assigns custom, community-recognized tags (such as Fantasy or Slice of Life).
+                  </span>
+                </div>
+              </motion.li>
+              <motion.li
+                className="cs-custom-bullet"
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+              >
+                <span className="cs-bullet-shape cs-bullet-shape--3" />
+                <div className="cs-bullet-content">
+                  <span className="cs-bullet-title">The Vibe Algorithm</span>
+                  <span className="cs-bullet-text">
+                    To determine a user's overarching viewing personality, I built a custom classification
+                    script based on a series of nested conditional rules. The algorithm tallies the user's
+                    genre frequencies and passes them through a decision tree that evaluates dominant
+                    genres while applying specific constraints (e.g., ensuring a user watched a minimum number
+                    of thrillers before qualifying as a Detective). It also includes title-specific overrides,
+                    boosting certain categories if specific, highly influential dramas are found in their top
+                    history, before ultimately mapping the user to one of the five archetypes.
+                  </span>
+                </div>
+              </motion.li>
+            </ul>
           </section>
 
           {/* Insights */}
           <section id="insights" className="cs-section">
             <h2 className="cs-section-title">Insights</h2>
             <p className="cs-body">
-              The project taught me a lot about building for delight — the stats themselves are
-              simple, but the presentation and shareability are what made people care. Wrapping
-              data in a story format completely changed how users engaged with it.
+              This project taught me a lot about building for delight. While the end goal was a
+              fun, shareable social experience, relying on a global API for niche television
+              metadata meant navigating some real-world data constraints.
             </p>
             <p className="cs-body">
-              Designing for screenshots meant rethinking layout constraints. Every card had to
-              work as a standalone image — no relying on surrounding context or navigation.
-              That constraint pushed the design to be bolder and more self-contained.
+              One challenge I couldn't completely solve was ongoing broadcasts. The API
+              returns the projected total episode count rather than the currently aired count,
+              which means the calculated watch hours for unfinished, currently airing shows
+              can sometimes be artificially inflated.
             </p>
           </section>
 
@@ -326,22 +392,24 @@ export default function KDramaWrappedPage() {
           <section id="impact" className="cs-section">
             <h2 className="cs-section-title">Impact</h2>
             <p className="cs-body">
-              K-Drama Wrapped resonated far beyond what I expected. Within the first week of
-              launch, the community response was overwhelming — people were sharing their recaps
-              across Twitter, Reddit, and Instagram stories.
+              Within the first week of launch (last week of December 2025), the community response was overwhelming with people sharing their recaps
+              especially on Twitter (X).
             </p>
+
+            <div className="cs-image-group">
+              <div className="cs-image-slot">
+                <img src="/assets/kdrama-wrapped/twitter-collage.png" alt="Collage of tweets sharing K-Drama Wrapped on X" />
+              </div>
+            </div>
+
             <div className="cs-stats-row">
               <div className="cs-stat">
-                <span className="cs-stat-number">2,400+</span>
-                <span className="cs-stat-label">Users in first month</span>
+                <span className="cs-stat-number">200+</span>
+                <span className="cs-stat-label">Users in first week</span>
               </div>
               <div className="cs-stat">
-                <span className="cs-stat-number">7</span>
+                <span className="cs-stat-number">8</span>
                 <span className="cs-stat-label">Days to build &amp; ship</span>
-              </div>
-              <div className="cs-stat">
-                <span className="cs-stat-number">85%</span>
-                <span className="cs-stat-label">Shared their recap</span>
               </div>
             </div>
           </section>
@@ -351,16 +419,13 @@ export default function KDramaWrappedPage() {
       {/* View Next Project */}
       <div className="cs-next-project">
         <span className="cs-next-label">Next Project</span>
-        <Link to="#" className="cs-next-card">
+        <Link to="/coming-soon" className="cs-next-card">
           <div className="cs-next-cover">
             <img src="/assets/project-cover-asd-journey.png" alt="ASD Journey cover" />
           </div>
           <div className="cs-next-info">
             <span className="cs-next-title">
               ASD Journey
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                <path d="M5 15L15 5M15 5H8M15 5V12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
             </span>
             <span className="cs-next-desc">Mapping the surgical journey of patients with Adult Spinal Deformity.</span>
           </div>
