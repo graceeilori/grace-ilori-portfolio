@@ -790,3 +790,134 @@
     border-radius: 1px;
   }
 }
+
+/* CPSC 581 Collection */
+
+.cpsc-card-cover {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.cpsc-card-cover img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cpsc-section:hover .cpsc-card-cover img {
+  transform: scale(1.015);
+}
+
+.cpsc-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cpsc-card-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 48px;
+  margin-bottom: 2px;
+}
+
+.cpsc-card-number {
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 400;
+  color: var(--accent-teal);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  opacity: 0.75;
+}
+
+.cpsc-card-tagline {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-lavender);
+  padding-bottom: 8px;
+}
+
+.cpsc-card-title {
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: 400;
+  color: var(--accent-teal);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.cpsc-card-desc {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-mid);
+  line-height: 1.75;
+}
+
+.cpsc-card-system {
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.cpsc-card-tech {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: var(--text-light);
+  margin-top: 6px;
+}
+
+.cpsc-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--text-mid);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--border-color);
+  padding-bottom: 5px;
+  transition: color 0.25s ease, text-decoration-color 0.25s ease;
+}
+
+.cpsc-card-cta:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+.cpsc-card-cta svg {
+  transition: transform 0.25s ease;
+}
+
+.cpsc-card-cta:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* CPSC 581 Responsive */
+@media (max-width: 768px) {
+  .cpsc-card-cover {
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+
+  .cpsc-card-cover img {
+    border-radius: 12px;
+  }
+
+  .cpsc-card-number {
+    font-size: 28px;
+  }
+}

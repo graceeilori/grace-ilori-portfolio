@@ -1,5 +1,15 @@
-import { Outlet } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Outlet, useLocation } from 'react-router-dom'
 import './App.css'
+
+/* Scroll to top on route change */
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+  return null
+}
 
 /* ---- SVG Icon Components ---- */
 const LinkedInIcon = () => (
@@ -26,6 +36,7 @@ const MailIcon = () => (
 export default function Layout() {
   return (
     <div className="page-shell">
+      <ScrollToTop />
       {/* ── Navigation ── */}
       <nav className="top-nav" role="navigation" aria-label="Main navigation">
         <a href="/" className="nav-logo animate-in animate-in-delay-1" aria-label="Grace Ilori — Home">

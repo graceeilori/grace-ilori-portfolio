@@ -2,21 +2,21 @@ import './Projects.css'
 
 const projects = [
   {
+    id: 'cpsc-581',
+    link: '/projects/cpsc-581',
+    image: '/assets/project-cover-cpsc-581.png',
+    year: '2026',
+    title: 'CPSC 581 Collection',
+    description: 'Visual design, embodied interaction, and physical computing.',
+    tags: ['DEVELOPMENT', 'UX'],
+  },
+  {
     id: 'kdrama-wrapped',
     link: '/projects/kdrama-wrapped',
     image: '/assets/project-cover-kdrama-wrapped-v4.png',
     year: '2025',
     title: 'K-Drama Wrapped',
     description: 'A Spotify-Wrapped inspired recap for K-drama watchers.',
-    tags: ['DEVELOPMENT', 'UX'],
-  },
-  {
-    id: 'cpsc-581',
-    link: 'https://gracei.vercel.app/',
-    image: '/assets/project-cover-cpsc-581.png',
-    year: '2026',
-    title: 'CPSC 581 Collection',
-    description: 'Visual design, embodied interaction, and physical computing.',
     tags: ['DEVELOPMENT', 'UX'],
   },
   {
@@ -64,11 +64,7 @@ export default function ProjectsPage() {
             key={project.id}
             onClick={() => {
               if (project.link !== "#") {
-                if (project.id === "cpsc-581") {
-                  window.open(project.link, '_blank', 'noopener,noreferrer');
-                } else {
-                  window.location.href = project.link;
-                }
+                window.location.href = project.link;
               }
             }}
             className={`proj-card animate-in animate-in-delay-${Math.min(index + 3, 6)}`}
