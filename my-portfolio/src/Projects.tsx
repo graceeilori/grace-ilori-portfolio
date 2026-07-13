@@ -53,7 +53,7 @@ export default function ProjectsPage() {
       <header className="projects-header animate-in animate-in-delay-2">
         <h1 className="projects-title">Projects</h1>
         <p className="projects-subtitle">
-          a running log of what I've researched, designed, and shipped
+          a running log of what I've researched, designed, and developed
         </p>
       </header>
 

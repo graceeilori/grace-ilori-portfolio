@@ -79,7 +79,7 @@ export default function HomePage() {
           </div>
         </Link>
 
-        <img src="/assets/star_1.svg" alt="" className="section-star" aria-hidden="true" />
+        {/* <img src="/assets/star_1.svg" alt="" className="section-star" aria-hidden="true" /> */}
 
         {/* EXPERIENCE & PLAYGROUND — hidden until ready
         <Link to="/coming-soon" className="section-nav" id="nav-experience">
