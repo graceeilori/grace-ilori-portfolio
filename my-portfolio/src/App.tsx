@@ -81,17 +81,17 @@ export default function HomePage() {
 
         <img src="/assets/star_1.svg" alt="" className="section-star" aria-hidden="true" />
 
-        {/* EXPERIENCE — text hover only for now, peek-ready */}
+        {/* EXPERIENCE & PLAYGROUND — hidden until ready
         <Link to="/coming-soon" className="section-nav" id="nav-experience">
           <span className="section-link">Experience</span>
         </Link>
 
         <img src="/assets/star_2.svg" alt="" className="section-star" aria-hidden="true" />
 
-        {/* PLAYGROUND — text hover only for now, peek-ready */}
         <Link to="/coming-soon" className="section-nav" id="nav-playground">
           <span className="section-link">Playground</span>
         </Link>
+        */}
       </div>
     </main>
   )
